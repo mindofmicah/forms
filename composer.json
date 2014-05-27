@@ -7,7 +7,7 @@
     },
     "autoload" : {
         "psr-4" : {
-            "MindOfMicah\\Forms" : "src/" 
+            "MindOfMicah\\Forms\\" : "src/" 
         }
     },
     "minimum-stability" : "stable"
