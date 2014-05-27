@@ -1,10 +1,6 @@
 {
     "name" : "mindofmicah/forms",
     "description" : "Simple form validation",
-    "require" : {
-        "php" : ">=5.3.0",
-        "illuminate/validation" : "4.1.*"
-    },
     "autoload" : {
         "psr-4" : {
             "MindOfMicah\\Forms\\" : "src/" 
