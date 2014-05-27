@@ -1,0 +1,11 @@
+<?php
+namespace Whamdonk\Forms;
+
+use MindOfMicah\Forms\Form;
+
+class {{$NAME$}} extends Form
+{
+    protected $rules = [
+        {{$RULES$}}        
+    ];
+}
