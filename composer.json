@@ -1,5 +1,5 @@
 {
-    "name" : "mindofmicah/form-validation",
+    "name" : "mindofmicah/forms",
     "description" : "Simple form validation",
     "require" : {
         "php" : ">=5.3.0",
