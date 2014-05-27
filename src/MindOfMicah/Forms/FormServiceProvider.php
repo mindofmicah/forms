@@ -18,6 +18,6 @@ class FormServiceProvider extends ServiceProvider
             return new Commands\FormValidatorCommand($filesystem);
         });
 
-        $this->command('forms.validator');
+        $this->commands('forms.validator');
     }
 }
