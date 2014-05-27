@@ -6,7 +6,7 @@ use Illuminate\Validation\Factory as Validator;
 
 abstract class Form
 {
-    private $validator;
+    protected $validator;
     
     public function __construct(Validator $validator)
     {
