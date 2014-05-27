@@ -56,7 +56,7 @@ class FormValidatorCommand extends Command {
             str_replace(
                 ['{{$NAME$}}', '{{$RULES$}}'],
                 [$this->argument('name'), $this->formatRules($rules)],
-                $this->file->get(app_path() . '/commands/templates/stub.txt')
+                $this->file->get('vendor/mindofmicah/forms/src/MindOfMicah/Forms/templates/stub.txt')
             )
         );
 		$this->info($this->argument('name') . ' was added as a validator');
