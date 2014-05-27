@@ -13,7 +13,7 @@ abstract class Form
         $this->validator = $validator;
     }
 
-    public function validate()
+    public function validate($form_data)
     {
         $this->validation = $this->validator->make($form_data, $this->getValidationRules());    
         if ($this->validation->fails()) {
