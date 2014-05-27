@@ -17,7 +17,7 @@ abstract class Form
     {
         $this->validation = $this->validator->make($form_data, $this->getValidationRules());    
         if ($this->validation->fails()) {
-            throw new FormValidationException('Validation Failed', $this->getValidationErrors();
+            throw new FormValidationException('Validation Failed', $this->getValidationErrors());
         }
         return true;
     }
