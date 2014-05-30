@@ -1,0 +1,7 @@
+formatter.name: nyan.dino
+suites:
+    my_suite:
+        namespace: MindOfMicah\Forms
+        src_path: src
+extensions:
+    - PhpSpec\NyanFormattersExtension\Extension
