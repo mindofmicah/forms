@@ -31,8 +31,8 @@ class FormValidatorCommand extends Command {
 	 */
 	public function __construct(Filesystem $file, RuleFormatter $formatter)
     {
-        $this->file = $file;
-        $this->formatter = $formatter;
+       	$this->file = $file;
+       	$this->formatter = $formatter;
 		parent::__construct();
 	}
 
@@ -58,7 +58,7 @@ class FormValidatorCommand extends Command {
             app_path() . '/Whamdonk/Forms/' . $this->argument('name') . '.php',
             str_replace(
                 ['{{$NAME$}}', '{{$RULES$}}'],
-                [$this->argument('name'), $this->formatter->format($rules)],
+                [$this->argument('name'), $this->formatter->formatCollection($rules)],
                 $this->file->get('vendor/mindofmicah/forms/src/MindOfMicah/Forms/templates/stub.txt')
             )
         );
