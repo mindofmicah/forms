@@ -6,6 +6,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Illuminate\Filesystem\Filesystem;
 
+use MindOfMicah\Forms\RuleFormatter;
+
 class FormValidatorCommand extends Command {
 
 	/**
@@ -27,9 +29,10 @@ class FormValidatorCommand extends Command {
 	 *
 	 * @return void
 	 */
-	public function __construct(Filesystem $file)
+	public function __construct(Filesystem $file, RuleFormatter $formatter)
     {
         $this->file = $file;
+        $this->formatter = $formatter;
 		parent::__construct();
 	}
 
@@ -55,24 +58,12 @@ class FormValidatorCommand extends Command {
             app_path() . '/Whamdonk/Forms/' . $this->argument('name') . '.php',
             str_replace(
                 ['{{$NAME$}}', '{{$RULES$}}'],
-                [$this->argument('name'), $this->formatRules($rules)],
+                [$this->argument('name'), $this->formatter->format($rules)],
                 $this->file->get('vendor/mindofmicah/forms/src/MindOfMicah/Forms/templates/stub.txt')
             )
         );
 		$this->info($this->argument('name') . ' was added as a validator');
 	}
-
-    private function formatRules(array $orig) {
-        $ret = '';
-        $glue = ",\n\t\t";
-        $lengths = array_map('strlen', array_keys($orig));
-        $num_spaces = max($lengths) + 1;
-        foreach($orig as $property => $rules) {
-
-            $ret.= $glue . "'" . $property . "'".str_repeat(' ', $num_spaces - strlen($property))."=> '" . implode('|', $rules) . "'";
-        }
-        return substr($ret, strlen($glue));
-    }
 
 	/**
 	 * Get the console command arguments.
