@@ -13,7 +13,7 @@ class FormValidationException extends \Exception
         parent::__construct($message);
     }
     
-    protected function getErrors()
+    public function getErrors()
     {
         return $this->errors;
     }
